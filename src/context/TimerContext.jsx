@@ -52,7 +52,7 @@ const timerReducer = (state, action) => {
         ...state,
         timers: state.timers.map(timer =>
           timer.id === action.payload
-            ? {...timer, time: 0, status: 'paused'}
+            ? {...timer, remaining: 0, status: 'paused'}
             : timer,
         ),
       };
@@ -82,14 +82,14 @@ const timerReducer = (state, action) => {
         ...state,
         timers: state.timers.map(timer =>
           timer.category === action.payload
-            ? {...timer, time: 0, status: 'paused'}
+            ? {...timer, remaining: 0, status: 'paused'}
             : timer,
         ),
       };
 
     default:
       return state;
-      
+
   }
 };
 
